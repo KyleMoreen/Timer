@@ -3,17 +3,7 @@ let hour = 0;
 let minute = 0;
 let second = 0;
 
-// const date = new Date();
-// let startTime = date.getTime();
-
-// function getNewDate() {
-//     let newDate = new Date();
-//     let newTime = newDate.getTime();
-//     let deltaTime = newTime - startTime;
-//     let time = Math.round(deltaTime/1000)
-//     console.log(time);
-// }
-// console.log(date)
+let interval;
 
 let hue = getComputedStyle(document.documentElement).getPropertyValue('--hue');
 hue = Math.floor(Math.random() * 360);
@@ -37,8 +27,9 @@ function addTime() {
         second = 0;
         minute = 0;
         hour++;
-        displayTimer
+        displayTimer();
     }
+
     if (hue < 359) {
         document.documentElement.style.setProperty('--hue', hue++);
     }
@@ -48,16 +39,19 @@ function addTime() {
     }
 }
 
-// function changeHue() {
-//     if (hue < 359) {
-//         document.documentElement.style.setProperty('--hue', hue++);
-//     }
-//     else if (hue >= 359) {
-//         hue = 0;
-//         document.documentElement.style.setProperty('--hue', hue);
-//     }
-// }
-
 displayTimer();
-setInterval(addTime, 1000);
-//setInterval(changeHue, 100)
+
+function startTimer() {
+    interval = setInterval(addTime, 1000);
+}
+
+function stopTimer() {
+    clearInterval(interval);
+}
+
+function resetTimer() {
+    hour = 0;
+    minute = 0;
+    second = 0;
+    displayTimer();
+}

@@ -17,3 +17,21 @@
 .timer {
     padding-top: 40vh;
 }
+
+button {
+    margin: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70px;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    background-color: rgba(255, 255, 255, 0.7);
+}
