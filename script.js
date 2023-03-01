@@ -4,6 +4,7 @@ let minute = 0;
 let second = 0;
 
 let interval;
+let timerOn;
 
 let hue = getComputedStyle(document.documentElement).getPropertyValue('--hue');
 hue = Math.floor(Math.random() * 360);
@@ -42,11 +43,20 @@ function addTime() {
 displayTimer();
 
 function startTimer() {
-    interval = setInterval(addTime, 1000);
+    if (!timerOn) {
+        interval = setInterval(addTime, 1000);
+        timerOn = true;
+    }
+
+    else if (timerOn === false) {
+        interval = setInterval(addTime, 1000);
+        timerOn = true;
+    }
 }
 
 function stopTimer() {
     clearInterval(interval);
+    timerOn = false;
 }
 
 function resetTimer() {
