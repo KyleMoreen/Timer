@@ -15,7 +15,15 @@
 }
 
 .timer {
-    padding-top: 40vh;
+    padding-top: 250px;
+}
+
+.button-container {
+    display: flex;
+    width: 450px;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 button {
@@ -25,7 +33,7 @@ button {
     border: none;
     padding: 10px;
     border-radius: 10px;
-    width: 70px;
+    width: 120px;
 }
 
 button:hover {
